@@ -656,4 +656,7 @@ class AppStrings {
   static const String falseInformation = "False information";
   static const String otherReason = "Other reason";
   static const String Create = "Create";
+
+  static const String or = 'OR';
+  static const String haveAccount = 'Already have account?';
 }

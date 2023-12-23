@@ -73,4 +73,5 @@ class Images {
   static const chocolate = 'assets/images/products_static_image/chocolate.webp';
   static const riceBranOil =
       'assets/images/products_static_image/riceBranOil.webp';
+  static const String googleImage = 'assets/images/google.png';
 }
