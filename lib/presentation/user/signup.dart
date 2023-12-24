@@ -1,12 +1,16 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:velocitybloom/Screen/home_screen.dart';
 import 'package:velocitybloom/utils/app_string.dart';
 import 'package:velocitybloom/utils/widget.dart';
 
 import 'login.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({key: Key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -20,57 +24,49 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController repasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-
   handleGoogleSignUpButton() {
     //for showing progress bar
     //Dialogs.shawProgressBar(context);
-  //
-  //   _signUpWithGoogle().then((user) async {
-  //     //for hiding progress bar
-  //     Navigator.pop(context);
-  //
-  //     if (user != null) {
-  //       log('\nUser: ${user.user}');
-  //       log('\nUserAdditionalInfo: ${user.additionalUserInfo}');
-  //
-  //       if ((await APIs.userExists())) {
-  //         Navigator.pushReplacement(
-  //             context, MaterialPageRoute(builder: (_) => const HomeScreen()));
-  //       } else {
-  //         await APIs.createUser().then((value) {
-  //           Navigator.pushReplacement(
-  //               context, MaterialPageRoute(builder: (_) => const HomeScreen()));
-  //         });
-  //       }
-  //     }
-  //   });
+
+    _signInWithGoogle().then((user) async {
+      //for hiding progress bar
+      Navigator.pop(context);
+      if (user != null) {
+        log('\nUser: ${user.user}');
+        log('\nUserAdditionalInfo: ${user.additionalUserInfo}');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => const HomeScreen()));
+      }
+    });
   }
 
-  // Future<UserCredential?> _signUpWithGoogle() async {
-  //   try {
-  //     await InternetAddress.lookup('google.com');
-  //     // Trigger the authentication flow
-  //     final GoogleSignInAccount?  googleUser = await GoogleSignIn().signIn();
-  //
-  //     // Obtain the auth details from the request
-  //     final GoogleSignInAuthentication? googleAuth =
-  //     await googleUser?.authentication;
-  //
-  //     // Create a new credential
-  //     final credential = GoogleAuthProvider.credential(
-  //       accessToken: googleAuth?.accessToken,
-  //       idToken: googleAuth?.idToken,
-  //     );
-  //
-  //     // Once signed in, return the UserCredential
-  //     return await FirebaseAuth.instance.signInWithCredential
-  //       (credential);
-  //   } catch (e) {
-  //     log('\n_signInWithGoogle: $e');
-  //     //Dialogs.showSnakeBar(context, 'Something Went Wrong (Check Internet!)');
-  //     return null;
-  //   }
-  // }
+  Future<UserCredential?> _signInWithGoogle() async {
+    try {
+      //await InternetAddress.lookup('google.com');
+      // Trigger the authentication flow
+      final GoogleSignInAccount?  googleUser = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+      await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      return await FirebaseAuth.instance.signInWithCredential
+        (credential);
+    } catch (e) {
+      log('\n_signInWithGoogle: $e');
+      getSnakeBar(context, const Text('Something Went Wrong (Check Internet!)'));
+      //Dialogs.showSnakeBar(context, 'Something Went Wrong (Check Internet!)');
+      return null;
+    }
+  }
+
   @override
   Widget build(context) {
     final mediaHeight = MediaQuery.of(context).size.height;
@@ -142,7 +138,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(height: mediaHeight * 0.04, child: const Text
                   (AppStrings
                     .or),),
-                getGoogleSignInAndSignUpButton( handleGoogleSignUpButton() , ''
+                getGoogleSignInAndSignUpButton( (){handleGoogleSignUpButton()
+                ;} , ''
                     'SignUp with '
                         'google', const TextStyle
                   (fontWeight:
@@ -176,15 +173,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
     }
-    if (passwordController != repasswordController) {
-      print('password not matched check your password');
-      return;
-    }
+    // if (passwordController != repasswordController) {
+    //   print('password not matched check your password');
+    //   return;
+    // }
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
         .then(
-      (value) {
+      (value) async{
+        if (value != null)
+          {
+              print(FirebaseAuth.instance.currentUser);
+              final userCredential =
+                  await FirebaseAuth.instance.getRedirectResult();
+              final user = userCredential.user;
+              print(user?.uid);
+          }
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),

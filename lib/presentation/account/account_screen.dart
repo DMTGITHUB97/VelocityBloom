@@ -11,6 +11,10 @@ import 'package:velocitybloom/Screen/account/saved_payment_modes.dart';
 import 'package:velocitybloom/Screen/account/sell_product_on_app.dart';
 import 'package:velocitybloom/Screen/account/terms_and_conditions.dart';
 import 'package:velocitybloom/Screen/account/wishlist.dart';
+import 'package:velocitybloom/Screen/user/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -65,7 +69,7 @@ class _AccountScreenState extends State<AccountScreen> {
         ],
       ),
       child: TextButton(
-          onPressed: () {},
+          onPressed: () {handleLogout();},
           child: const Text(
             'Log Out',
             style: TextStyle(fontWeight: FontWeight.w600, color: Colors.purple),
@@ -498,5 +502,12 @@ class _AccountScreenState extends State<AccountScreen> {
         ],
       ),
     );
+  }
+
+  void handleLogout() async{
+    await FirebaseAuth.instance.signOut();
+    Navigator.pop(context);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>
+        const LoginScreen()));
   }
 }
