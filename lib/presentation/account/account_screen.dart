@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/account/browse_faqs.dart';
-import 'package:velocitybloom/Screen/account/coupons.dart';
-import 'package:velocitybloom/Screen/account/help_center.dart';
-import 'package:velocitybloom/Screen/account/my_account.dart';
-import 'package:velocitybloom/Screen/account/order.dart';
-import 'package:velocitybloom/Screen/account/questions%20_Answers.dart';
-import 'package:velocitybloom/Screen/account/reviews_screen.dart';
-import 'package:velocitybloom/Screen/account/saved_address.dart';
-import 'package:velocitybloom/Screen/account/saved_payment_modes.dart';
-import 'package:velocitybloom/Screen/account/sell_product_on_app.dart';
-import 'package:velocitybloom/Screen/account/terms_and_conditions.dart';
-import 'package:velocitybloom/Screen/account/wishlist.dart';
-import 'package:velocitybloom/Screen/user/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:velocitybloom/presentation/account/browse_faqs.dart';
+import 'package:velocitybloom/presentation/account/coupons.dart';
+import 'package:velocitybloom/presentation/account/help_center.dart';
+import 'package:velocitybloom/presentation/account/my_account.dart';
+import 'package:velocitybloom/presentation/account/order.dart';
+import 'package:velocitybloom/presentation/account/questions%20_Answers.dart';
+import 'package:velocitybloom/presentation/account/reviews_screen.dart';
+import 'package:velocitybloom/presentation/account/saved_address.dart';
+import 'package:velocitybloom/presentation/account/saved_payment_modes.dart';
+import 'package:velocitybloom/presentation/account/sell_product_on_app.dart';
+import 'package:velocitybloom/presentation/account/terms_and_conditions.dart';
+import 'package:velocitybloom/presentation/account/wishlist.dart';
+import 'package:velocitybloom/presentation/user/login.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -95,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 15.0, left: 15),
               child: Text('My Activity',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
@@ -103,28 +101,28 @@ class _AccountScreenState extends State<AccountScreen> {
             ListTile(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ReviewsScreen()));
+                    MaterialPageRoute(builder: (context) => const ReviewsScreen()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.rate_review_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Reviews'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Reviews'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => QuestionsAnswersScreen()));
+                        builder: (context) => const QuestionsAnswersScreen()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.messenger_outline,
                 color: Colors.purple,
               ),
-              title: Text('Questions & Answers'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Questions & Answers'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
           ],
         ));
@@ -148,7 +146,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 15.0, left: 15),
               child: Text('Earn with Velocity Bloom',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
@@ -158,14 +156,14 @@ class _AccountScreenState extends State<AccountScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SellProductOnApp()));
+                        builder: (context) => const SellProductOnApp()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.blinds_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Sell on Velocity Bloom'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Sell on Velocity Bloom'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
           ],
         ));
@@ -189,7 +187,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 15.0, left: 15),
               child: Text('Feedback & Information',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
@@ -199,28 +197,28 @@ class _AccountScreenState extends State<AccountScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TermsPoliciesLicencesScreen()));
+                        builder: (context) => const TermsPoliciesLicencesScreen()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.event_note_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Terms, Policies and Licenses'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Terms, Policies and Licenses'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => BrowseFAQsScreen()));
+                        builder: (context) => const BrowseFAQsScreen()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.info_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Browse FAQs'),
-              trailing: Icon(Icons.contact_support_outlined),
+              title: const Text('Browse FAQs'),
+              trailing: const Icon(Icons.contact_support_outlined),
             ),
           ],
         ));
@@ -244,7 +242,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 15.0, left: 15),
               child: Text('Account Settings',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
@@ -252,60 +250,60 @@ class _AccountScreenState extends State<AccountScreen> {
             ListTile(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MyAccount()));
+                    MaterialPageRoute(builder: (context) => const MyAccount()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.perm_identity_rounded,
                 color: Colors.purple,
               ),
-              title: Text('Edit Profile'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Edit Profile'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SavedPaymentModes()));
+                        builder: (context) => const SavedPaymentModes()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.wallet,
                 color: Colors.purple,
               ),
-              title: Text('Saved Cards & Wallets'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Saved Cards & Wallets'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SavedAddressScreen()));
+                        builder: (context) => const SavedAddressScreen()));
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.location_on_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Saved Addresses'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Saved Addresses'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {},
-              leading: Icon(
+              leading: const Icon(
                 Icons.sort_by_alpha_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Select Language'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Select Language'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
             ListTile(
               onTap: () {},
-              leading: Icon(
+              leading: const Icon(
                 Icons.edit_notifications_outlined,
                 color: Colors.purple,
               ),
-              title: Text('Notification Settings'),
-              trailing: Icon(Icons.chevron_right_outlined),
+              title: const Text('Notification Settings'),
+              trailing: const Icon(Icons.chevron_right_outlined),
             ),
           ],
         ));
@@ -329,7 +327,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: ListTile(
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MyAccount()));
+                context, MaterialPageRoute(builder: (context) => const MyAccount()));
           },
           leading: const Icon(
             Icons.mail,
@@ -341,7 +339,7 @@ class _AccountScreenState extends State<AccountScreen> {
           trailing: ElevatedButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyAccount()));
+                  MaterialPageRoute(builder: (context) => const MyAccount()));
             },
             style: ButtonStyle(
                 textStyle: MaterialStateProperty.all(
@@ -387,7 +385,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Orders()));
+                                    builder: (context) => const Orders()));
                           },
                           icon: const Icon(Icons.inventory_2_outlined),
                           label: const Text(
@@ -414,7 +412,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => WishlistScreen()));
+                                  builder: (context) => const WishlistScreen()));
                         },
                         icon: const Icon(Icons.favorite_outline),
                         label: const Text(
@@ -451,7 +449,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => CouponsScreen()));
+                                    builder: (context) => const CouponsScreen()));
                           },
                           icon: const Icon(Icons.card_giftcard_outlined),
                           label: const Text(
@@ -478,7 +476,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HelpCenterScreen()));
+                                  builder: (context) => const HelpCenterScreen()));
                         },
                         icon: const Icon(Icons.headset_mic_outlined),
                         label: const Text(
@@ -504,8 +502,8 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  void handleLogout() async{
-    await FirebaseAuth.instance.signOut();
+  void handleLogout() {
+    FirebaseAuth.instance.signOut();
     Navigator.pop(context);
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>
         const LoginScreen()));

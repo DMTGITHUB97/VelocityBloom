@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/add_to_cart_screen.dart';
-import 'package:velocitybloom/Screen/payment/payment_service.dart';
+import 'package:velocitybloom/presentation/add_to_cart_screen.dart';
+import 'package:velocitybloom/presentation/payment/payment_service.dart';
 
 class ProductDescriptionPage extends StatefulWidget {
   int index;

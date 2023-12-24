@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:velocitybloom/utils/image_const.dart';
 
 class SlideTransitionScreen extends StatefulWidget{
-  const SlideTransitionScreen({key : Key}) : super(key: key);
+  const SlideTransitionScreen({Key? key}) : super(key: key);
   
   @override
   State<SlideTransitionScreen> createState() => _SlideTransitionScreenState();

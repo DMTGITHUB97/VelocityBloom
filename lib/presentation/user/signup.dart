@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:velocitybloom/Screen/home_screen.dart';
+import 'package:velocitybloom/presentation/home_screen.dart';
 import 'package:velocitybloom/utils/app_string.dart';
 import 'package:velocitybloom/utils/widget.dart';
 
@@ -182,15 +182,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             email: emailController.text, password: passwordController.text)
         .then(
       (value) async{
-        if (value != null)
-          {
-              print(FirebaseAuth.instance.currentUser);
-              final userCredential =
-                  await FirebaseAuth.instance.getRedirectResult();
-              final user = userCredential.user;
-              print(user?.uid);
-          }
-        Navigator.push(
+            print(FirebaseAuth.instance.currentUser);
+            final userCredential =
+                await FirebaseAuth.instance.getRedirectResult();
+            final user = userCredential.user;
+            print(user?.uid);
+                Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),
         );

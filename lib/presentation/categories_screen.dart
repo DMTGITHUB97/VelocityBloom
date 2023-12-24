@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/application_product_const.dart';
-import 'package:velocitybloom/Screen/product_modal.dart';
+import 'package:velocitybloom/presentation/application_product_const.dart';
+import 'package:velocitybloom/presentation/product_modal.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   void initState() {
     super.initState();
     items = CategoryModalConst.listOfCategories
-        .map((category) => 'Item ${category.categoryName}')
+        .map((category) => 'Item ${category?.categoryName}')
         .toList();
   }
 

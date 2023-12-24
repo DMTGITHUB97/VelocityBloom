@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "929621933441",
+    "project_id": "velocitybloom",
+    "storage_bucket": "velocitybloom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929621933441:android:123b70c62e6730c2113c80",
+        "android_client_info": {
+          "package_name": "com.example.velocitybloom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929621933441-1d99cmks6nsu67fbub7sb8aqc13o8uts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.velocitybloom",
+            "certificate_hash": "d35a5f155d2a52439b9694adb754735ab4556a6c"
+          }
+        },
+        {
+          "client_id": "929621933441-tlok3qsgljfg66m6p8hcefpjukj4nodc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiN7j80u8OutJoPYFoNaTvC_HwGUtLFII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929621933441-tlok3qsgljfg66m6p8hcefpjukj4nodc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

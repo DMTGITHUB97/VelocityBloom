@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/payment/payment_service.dart';
+import 'package:velocitybloom/presentation/payment/payment_service.dart';
 
 class AddToCartScreen extends StatefulWidget {
   late String isFrom;
@@ -110,6 +110,9 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                     PaymentService.openPaymentGateway(
                         totalPaymentAmount, widget.id ?? '0');
                   },
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.yellow)),
                   //     () {
                   //   Navigator.of(context).push(MaterialPageRoute(
                   //       builder: (context) => PaymentScreen(
@@ -129,9 +132,6 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                     'Place order',
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.yellow)),
                 ),
               )
             ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/product_modal.dart';
+import 'package:velocitybloom/presentation/product_modal.dart';
 import 'package:velocitybloom/utils/image_const.dart';
 
 class CategoryModalConst {

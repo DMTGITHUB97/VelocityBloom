@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/account/account_screen.dart';
-import 'package:velocitybloom/Screen/add_to_cart_screen.dart';
-import 'package:velocitybloom/Screen/application_product_const.dart';
-import 'package:velocitybloom/Screen/categories_screen.dart';
-import 'package:velocitybloom/Screen/main_listing_screen.dart';
-import 'package:velocitybloom/Screen/product_modal.dart';
+import 'package:velocitybloom/presentation/account/account_screen.dart';
+import 'package:velocitybloom/presentation/add_to_cart_screen.dart';
+import 'package:velocitybloom/presentation/application_product_const.dart';
+import 'package:velocitybloom/presentation/categories_screen.dart';
+import 'package:velocitybloom/presentation/main_listing_screen.dart';
+import 'package:velocitybloom/presentation/product_modal.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {

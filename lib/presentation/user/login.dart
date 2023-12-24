@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/home_screen.dart';
-import 'package:velocitybloom/Screen/user/signup.dart';
+import 'package:velocitybloom/presentation/home_screen.dart';
+import 'package:velocitybloom/presentation/user/signup.dart';
 import 'package:velocitybloom/utils/app_string.dart';
 import 'package:velocitybloom/utils/widget.dart';
 
@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   _handleSubmitButtonClick() async{
     if (_formKey.currentState!.validate()) {
-      //_formKey.currentState!.save();
+      _formKey.currentState!.save();
 
       print([FirebaseAuth.instance.currentUser?.uid, FirebaseAuth.instance
           .currentUser?.providerData
@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _navigateToSignUp() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignUpScreen()),
+      MaterialPageRoute(builder: (context) => const SignUpScreen()),
     );
   }
 }

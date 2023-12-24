@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:velocitybloom/Screen/add_to_cart_screen.dart';
-import 'package:velocitybloom/Screen/application_product_const.dart';
-import 'package:velocitybloom/Screen/product_description_screen.dart';
-import 'package:velocitybloom/Screen/product_modal.dart';
+import 'package:velocitybloom/presentation/add_to_cart_screen.dart';
+import 'package:velocitybloom/presentation/product_description_screen.dart';
+import 'package:velocitybloom/presentation/product_modal.dart';
+
+import 'application_product_const.dart';
 
 class ProductListingScreen extends StatefulWidget {
   const ProductListingScreen({Key? key}) : super(key: key);
